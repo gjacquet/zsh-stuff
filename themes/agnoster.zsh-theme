@@ -85,7 +85,7 @@ prompt_right_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    echo -n "%{%k%F{$CURRENT_BG}%}"
   else
     echo -n "%{%k%}"
   fi
@@ -231,7 +231,7 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue black '%~'
+  prompt_segment blue white '%~'
 }
 
 # Virtualenv: current working virtualenv
@@ -291,7 +291,7 @@ build_line1() {
 build_line2() {
   prompt_status
   prompt_context
-  #prompt_end
+  prompt_end
 }
 
 ## Main prompt
