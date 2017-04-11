@@ -184,7 +184,7 @@ prompt_bzr() {
 
 prompt_knife() {
 	if [[ -L ~/.chef/knife.rb ]]; then
-		local env_name="$(ls -al ~/.chef/knife.rb | sed -e "s@.*chef/knife-\(.*\).rb@\1@")"
+		local env_name="$(basename $(readlink ~/.chef/knife.rb) | sed -e s/knife-// -e s/.rb//)"
 		if [[ "$env_name" = "appdirect-org" ]]; then
       prompt_segment red white "${env_name}"
 	 	else
